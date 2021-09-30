@@ -1,0 +1,11 @@
+package com.watashi.bookstore;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Bookstoreapplication {
+    public static void main(String[] args) {
+        SpringApplication.run(Bookstoreapplication.class, args);
+    }
+}

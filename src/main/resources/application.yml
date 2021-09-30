@@ -1,0 +1,26 @@
+imagem-path: /src/assets/imagens/livros
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/watashi_db
+    username: postgres
+    password: 1234
+    initialization-mode: always
+    data: classpath:org/springframework/session/jdbc/schema-postgresql.sql
+    continue-on-error: true
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    database: postgresql
+    show-sql: true
+
+
+  session:
+    jdbc:
+      initialize-schema: always
+    store-type: jdbc
+
+server:
+  port: 7900
