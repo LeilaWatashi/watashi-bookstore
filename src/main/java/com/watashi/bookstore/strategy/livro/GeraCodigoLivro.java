@@ -12,8 +12,8 @@ public class GeraCodigoLivro implements IStrategy {
     @Override
     public String processar(EntidadeDominio entidade) {
         if(entidade instanceof Livro){
-            Livro carta = (Livro) entidade;
-            carta.setCodigo(GeradorCodigo.gerarCodigoCarta());
+            Livro livro = (Livro) entidade;
+            livro.setCodigo(GeradorCodigo.gerarCodigoLivro());
         }
         return null;
     }

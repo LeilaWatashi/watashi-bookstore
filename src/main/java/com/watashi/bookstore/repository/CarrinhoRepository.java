@@ -16,7 +16,7 @@ public interface CarrinhoRepository extends CrudRepository<Carrinho, Integer> {
 
     Carrinho findByItemListContaining(Item item);
 
-    @Query("select c from Carrinho c join fetch c.itemList i where i.carta.id = :id")
-    List<Carrinho> findByItemListContainingCartaId(@Param("id") Integer id);
+    @Query("select c from Carrinho c join fetch c.itemList i where i.livro.id = :id")
+    List<Carrinho> findByItemListContainingLivroId(@Param("id") Integer id);
 
 }

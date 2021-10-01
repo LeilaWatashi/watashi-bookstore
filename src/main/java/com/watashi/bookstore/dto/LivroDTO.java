@@ -49,17 +49,17 @@ public class LivroDTO extends EntidadeDominio implements IDTO {
 
         if(dominio instanceof Livro){
 
-            Livro carta = (Livro) dominio;
+            Livro livro = (Livro) dominio;
             LivroDTO livroDTO = new LivroDTO();
 
-            livroDTO.setId(carta.getId());
-            livroDTO.setNome(carta.getNome());
-            livroDTO.setDescricao(carta.getDescricao());
-            livroDTO.setDataCadastro(carta.getDataCadastro());
-            livroDTO.setValorVenda(carta.getValorCompra() * carta.getGrupoPrecificacao().getValor());
-            livroDTO.setQuantidadeDisponivel(carta.getQuantidadeDisponivel());
-            livroDTO.setQuantidadeEstoque(carta.getQuantidadeEstoque());
-            livroDTO.setCategoriaLivro(carta.getCategoriaLivro());
+            livroDTO.setId(livro.getId());
+            livroDTO.setNome(livro.getNome());
+            livroDTO.setDescricao(livro.getDescricao());
+            livroDTO.setDataCadastro(livro.getDataCadastro());
+            livroDTO.setValorVenda(livro.getValorCompra() * livro.getGrupoPrecificacao().getValor());
+            livroDTO.setQuantidadeDisponivel(livro.getQuantidadeDisponivel());
+            livroDTO.setQuantidadeEstoque(livro.getQuantidadeEstoque());
+            livroDTO.setCategoriaLivro(livro.getCategoriaLivro());
 
             return livroDTO;
         }

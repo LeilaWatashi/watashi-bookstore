@@ -14,8 +14,8 @@ public class ValidaQuantidadeEstoque implements IStrategy {
         StringBuilder msg = new StringBuilder();
 
         if(entidade instanceof Livro){
-            Livro carta = (Livro) entidade;
-            if(carta.getQuantidadeEstoque() < 0){
+            Livro livro = (Livro) entidade;
+            if(livro.getQuantidadeEstoque() < 0){
                 msg.append("Valor n�o pode ser maior que o est� em estoque atualmente");
             }
         }

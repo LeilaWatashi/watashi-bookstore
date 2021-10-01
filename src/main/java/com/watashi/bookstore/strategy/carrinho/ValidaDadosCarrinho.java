@@ -11,7 +11,7 @@ import com.watashi.bookstore.domain.EntidadeDominio;
 public class ValidaDadosCarrinho implements IStrategy {
 
     @Autowired
-    LivroRepository cartaRepository;
+    LivroRepository livroRepository;
 
     @Override
     public String processar(EntidadeDominio entidade) {
@@ -24,9 +24,9 @@ public class ValidaDadosCarrinho implements IStrategy {
 //
 //            if(!carrinho.getItemList().isEmpty()){
 //                carrinho.getItemList().forEach( item -> {
-//                    if (cartaRepository.findById(item.getCarta().getId()).get()
+//                    if (cartaRepository.findById(item.getLivro().getId()).get()
 //                            .getStatus().getId() == 2) {
-//                         msg.append("Produto " + item.getCarta().getNome() + " está inativo no momento.");
+//                         msg.append("Produto " + item.getLivro().getNome() + " está inativo no momento.");
 //                    }
 //                });
 //            }else{

@@ -13,13 +13,14 @@ import lombok.extern.log4j.Log4j2;
 @Component
 public class EmailSender {
     
-    @Autowired private JavaMailSender mailSender;
+    @Autowired
+    private JavaMailSender mailSender;
 
     public Boolean enviaEmail(Usuario usuario, Mensagem mensagem) {
 
     	SimpleMailMessage message = new SimpleMailMessage();
         
-        message.setFrom("realmofcards@outlook.com");
+        message.setFrom("watashibookstore@outlook.com");
         message.setTo(usuario.getEmail());
         message.setSubject(mensagem.getAssunto());
         message.setText(mensagem.getMensagem().toString());

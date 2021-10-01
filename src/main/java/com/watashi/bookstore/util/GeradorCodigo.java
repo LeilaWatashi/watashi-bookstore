@@ -53,7 +53,7 @@ public class GeradorCodigo {
 		return codigo;
 	}
 
-	public static String gerarCodigoCarta() {
+	public static String gerarCodigoLivro() {
 		Random random = new Random();
 		LocalDateTime localDateTime = LocalDateTime.now();
 		random.setSeed(localDateTime.getHour()

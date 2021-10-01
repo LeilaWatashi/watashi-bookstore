@@ -1,4 +1,4 @@
-package com.watashi.bookstore.strategy.transacao_status_carta;
+package com.watashi.bookstore.strategy.transacao_status_livro;
 
 import com.watashi.bookstore.domain.EntidadeDominio;
 import com.watashi.bookstore.domain.Livro;
@@ -15,9 +15,9 @@ public class AltararStatusLivro implements IStrategy {
     public String processar(EntidadeDominio entidade) {
 
         if(entidade instanceof TransacaoStatusLivro){
-            TransacaoStatusLivro transacaoStatusCarta = (TransacaoStatusLivro) entidade;
-            if(Util.isNotNull(transacaoStatusCarta.getLivro())){
-                Livro livro = transacaoStatusCarta.getLivro();
+            TransacaoStatusLivro transacaoStatusLivro = (TransacaoStatusLivro) entidade;
+            if(Util.isNotNull(transacaoStatusLivro.getLivro())){
+                Livro livro = transacaoStatusLivro.getLivro();
                 Status status;
                 if(livro.getStatus().getId() == 1){
                     status = Status.builder().id(2).build();
@@ -25,7 +25,7 @@ public class AltararStatusLivro implements IStrategy {
                     status = Status.builder().id(1).build();
                 }
                 livro.setStatus(status);
-                transacaoStatusCarta.setStatus(status);
+                transacaoStatusLivro.setStatus(status);
             }
         }
 

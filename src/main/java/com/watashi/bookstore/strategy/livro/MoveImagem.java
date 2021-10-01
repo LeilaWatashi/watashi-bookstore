@@ -16,7 +16,7 @@ public class MoveImagem implements IStrategy {
     ValidadorString validadorString;
 
     @Autowired
-    LivroRepository cartaRepository;
+    LivroRepository livroRepository;
 
     @Override
     public String processar(EntidadeDominio entidade) {
@@ -25,12 +25,12 @@ public class MoveImagem implements IStrategy {
 
         if (entidade instanceof Livro){
 
-            Livro carta = (Livro) entidade;
+            Livro livro = (Livro) entidade;
 
-            if(carta.getImagemPath() != null
-                && !carta.getImagemPath().contains("/assets/images/cartas/")){
+            if(livro.getImagemPath() != null
+                && !livro.getImagemPath().contains("/assets/imagens/livros/")){
 
-                carta.setImagemPath("/assets/images/cartas/" + carta.getImagemPath());
+                livro.setImagemPath("/assets/imagens/livros/" + livro.getImagemPath());
             }
         }
         return msg.toString();

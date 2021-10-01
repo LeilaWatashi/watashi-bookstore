@@ -37,7 +37,7 @@ public class RetiraLivroNaoDisponivelDoCarrinho implements IStrategy {
             Livro livro = (Livro) entidade;
             if(livro.getQuantidadeDisponivel() <= 0 || livro.getStatus().getId() == 2){
                 Integer quantidadeRetornada = 0;
-                List<Carrinho> carrinhos = carrinhoRepository.findByItemListContainingCartaId(livro.getId());
+                List<Carrinho> carrinhos = carrinhoRepository.findByItemListContainingLivroId(livro.getId());
                 for (Carrinho carrinho : carrinhos) {
                     List<Item> itemsRemovidos = new ArrayList<>();
                     for (Item item : carrinho.getItemList()) {

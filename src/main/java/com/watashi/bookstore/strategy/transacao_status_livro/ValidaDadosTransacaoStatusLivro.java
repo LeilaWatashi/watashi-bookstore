@@ -1,4 +1,4 @@
-package com.watashi.bookstore.strategy.transacao_status_carta;
+package com.watashi.bookstore.strategy.transacao_status_livro;
 
 import com.watashi.bookstore.domain.EntidadeDominio;
 import com.watashi.bookstore.domain.TransacaoStatusLivro;
@@ -20,7 +20,7 @@ public class ValidaDadosTransacaoStatusLivro implements IStrategy {
 
         if(entidade instanceof TransacaoStatusLivro){
             TransacaoStatusLivro transacaoStatusLivro = (TransacaoStatusLivro) entidade;
-            validadorString.validar(transacaoStatusLivro.getLivro(), "carta");
+            validadorString.validar(transacaoStatusLivro.getLivro(), "livro");
             validadorString.validar(transacaoStatusLivro.getMotivo(), "motivo");
         }
         return msg.toString();

@@ -37,10 +37,10 @@ public class ValidaDadosTroca implements IStrategy {
 					} else {
 						for (ItemTransacao itemTransacao : transicao.getItemTransicaoList()) {
 							if(itemTransacao.getQuantidade() > itemTransacao.getItem().getQuantidade()){
-								msg.append("A quantidade de troca da carta " + itemTransacao.getItem().getLivro().getNome()
+								msg.append("A quantidade de troca do livro " + itemTransacao.getItem().getLivro().getNome()
 										+ " deve ser menor que ou igual a " + itemTransacao.getItem().getQuantidade() + ".");
 							} else if(itemTransacao.getQuantidade() < 1 ){
-								msg.append("A quantidade de troca da carta " + itemTransacao.getItem().getLivro().getNome()
+								msg.append("A quantidade de troca do livrota " + itemTransacao.getItem().getLivro().getNome()
 										+ " deve ser maior que 0.");
 							}
 						}

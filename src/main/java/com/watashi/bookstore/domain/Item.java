@@ -32,7 +32,7 @@ public class Item extends EntidadeDominio {
     private Integer quantidadeDevolucao;
 
     @ManyToOne()
-    @JoinColumn(name = "itm_carta_id")
+    @JoinColumn(name = "itm_livro_id")
     private Livro livro;
     
     @ManyToOne()

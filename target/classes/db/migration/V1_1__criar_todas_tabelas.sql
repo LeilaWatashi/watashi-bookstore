@@ -5,14 +5,14 @@ CREATE TABLE bandeira (
 
 CREATE TABLE livro (
     liv_id                       SERIAL NOT NULL,
-    liv_codigo                   VARCHAR(50) NOT NULL UNIQUE,
-    liv_nome                     VARCHAR(50) NOT NULL UNIQUE,
+    liv_codigo                   VARCHAR(100) NOT NULL UNIQUE,
+    liv_nome                     VARCHAR(150) NOT NULL UNIQUE,
     liv_descricao                VARCHAR(500) NOT NULL,
     liv_data_cad                 DATE NOT NULL,
-    liv_valor_compra             DECIMAL(4, 2) NOT NULL,
+    liv_valor_compra             DECIMAL(6, 2) NOT NULL,
     liv_quantidade_disponivel    INT NOT NULL,
     liv_quantidade_estoque       INT NOT NULL,
-    liv_imagem_path              VARCHAR(250) NOT NULL,
+    liv_imagem_path              VARCHAR(300) NOT NULL,
     liv_categoria_id             INT NOT NULL,
     liv_status_id                INT NOT NULL,
     liv_grupo_precificacao_id    INT NOT NULL
@@ -22,7 +22,7 @@ CREATE TABLE cartao_credito (
     crt_id                SERIAL NOT NULL,
     crt_numero            VARCHAR(16) NOT NULL UNIQUE,
     crt_codigo_seguranca  VARCHAR(3) NOT NULL,
-    crt_titular_nome      VARCHAR(16) NOT NULL,
+    crt_titular_nome      VARCHAR(100) NOT NULL,
     crt_cpf_titular       VARCHAR(11) NOT NULL,
     crt_vencimento_mes    VARCHAR(2) NOT NULL,
     crt_vencimento_ano    VARCHAR(4) NOT NULL,
@@ -41,7 +41,7 @@ CREATE TABLE item (
     itm_quantidade              INT NOT NULL,
     itm_quantidade_troca        INT NOT NULL,
     itm_quantidade_devolucao    INT NOT NULL,
-    itm_carta_id                INT NOT NULL,
+    itm_livro_id                INT NOT NULL,
     itm_status_id               INT NOT NUll
 );
 
@@ -227,7 +227,7 @@ ALTER TABLE livro ADD CONSTRAINT livro_pk PRIMARY KEY ( liv_id );
 
 ALTER TABLE cartao_credito ADD CONSTRAINT cartao_pk PRIMARY KEY ( crt_id );
 
-ALTER TABLE categoria_carta ADD CONSTRAINT categoria_carta_pk PRIMARY KEY ( cat_id );
+ALTER TABLE categoria_livro ADD CONSTRAINT categoria_livro_pk PRIMARY KEY ( cat_id );
 
 ALTER TABLE cidade ADD CONSTRAINT cidade_pk PRIMARY KEY ( cid_id );
 
@@ -286,8 +286,8 @@ ALTER TABLE livro
         REFERENCES status ( sts_id );
 
 ALTER TABLE livro
-    ADD CONSTRAINT livro_categoria_carta_fk FOREIGN KEY (liv_categoria_id )
-        REFERENCES categoria_carta ( cat_id );
+    ADD CONSTRAINT livro_categoria_livro_fk FOREIGN KEY (liv_categoria_id )
+        REFERENCES categoria_livro ( cat_id );
 
 ALTER TABLE livro
     ADD CONSTRAINT livro_grupo_precificacao_fk FOREIGN KEY ( liv_grupo_precificacao_id )
@@ -356,14 +356,6 @@ ALTER TABLE carrinho_item
 ALTER TABLE carrinho_item
     ADD CONSTRAINT carrinho_item_item_fk FOREIGN KEY ( cri_item_id )
         REFERENCES item ( itm_id );
-
-ALTER TABLE jogo_categoria_carta
-    ADD CONSTRAINT jogo_categoria_carta_fk FOREIGN KEY ( jct_carta_id )
-        REFERENCES categoria_carta ( cat_id );
-
-ALTER TABLE jogo_categoria_carta
-    ADD CONSTRAINT jogo_categoria_jogo_fk FOREIGN KEY ( jct_jogo_id )
-        REFERENCES jogo ( jog_id );
 
 ALTER TABLE pedido
     ADD CONSTRAINT pedido_administrador_fk FOREIGN KEY ( ped_administrador_id )
@@ -441,8 +433,8 @@ ALTER TABLE transicao
     ADD CONSTRAINT transicao_tipo_transicao_fk FOREIGN KEY ( tsc_tipo_transicao_id )
         REFERENCES tipo_transicao ( tit_id );
 
-ALTER TABLE transacao_status_carta
-    ADD CONSTRAINT transacao_status_carta_status_fk FOREIGN KEY ( tsc_status_id )
+ALTER TABLE transacao_status_livro
+    ADD CONSTRAINT transacao_status_livro_status_fk FOREIGN KEY ( tsc_status_id )
         REFERENCES status ( sts_id );
 
 ALTER TABLE transacao_status_livro

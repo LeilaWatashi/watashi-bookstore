@@ -3,11 +3,9 @@ imagem-path: /src/assets/imagens/livros
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/watashi_db
+    url: jdbc:postgresql://localhost:5432/bookstore_db
     username: postgres
     password: 1234
-    initialization-mode: always
-    data: classpath:org/springframework/session/jdbc/schema-postgresql.sql
     continue-on-error: true
 
   jpa:
@@ -16,11 +14,35 @@ spring:
     database: postgresql
     show-sql: true
 
+  flyway:
+    baselineOnMigrate: true
+    check-location: true
+    locations:
+      classpath: db/migration
+    schemas: public
+    #enabled: false
 
   session:
     jdbc:
       initialize-schema: always
     store-type: jdbc
 
-server:
-  port: 7900
+  profiles:
+    active: storage-local
+
+  mail:
+    host: smtp.outlook.com
+    username: leilawatashi@gmail.com
+    password: Isae0611
+    port: 587
+    test-connection: true
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+          ssl:
+            enable: false

@@ -11,7 +11,7 @@ import com.watashi.bookstore.facade.Fachada;
 @RestController
 @CrossOrigin
 @RequestMapping("/categorias")
-public class CategoriaCartaEndpoint {
+public class CategoriaLivroEndpoint {
     
     @Autowired
     private Fachada fachada;

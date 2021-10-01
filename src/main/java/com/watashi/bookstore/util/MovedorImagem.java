@@ -17,11 +17,11 @@ public class MovedorImagem {
         File arquivo = new File(imagemPath);
 
         // Diretorio de destino
-        File diretorioDestino = new File(new File("./../client/src/assets/images/cartas").getCanonicalPath());
+        File diretorioDestino = new File(new File("./../client/src/assets/images/livros").getCanonicalPath());
 
         // Move o arquivo para o novo diretorio
         arquivo.renameTo(new File(diretorioDestino, arquivo.getName()));
 
-        return "/assets/images/cartas/" + arquivo.getName();
+        return "/assets/images/livros/" + arquivo.getName();
     }
 }

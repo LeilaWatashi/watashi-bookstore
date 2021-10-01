@@ -37,7 +37,7 @@ public class LivroEndpoint {
             resultado.getEntidades().forEach(entidadeDominio -> livros.add((Livro) entidadeDominio));
             Collections.sort(livros);
             resultado.setEntidades(new ArrayList<>());
-            livros.forEach( cartaOrdenada -> resultado.addEntidade(cartaOrdenada));
+            livros.forEach( livroOrdenado -> resultado.addEntidade(livroOrdenado));
         }
         return ResponseEntity.ok().body(resultado);
     }

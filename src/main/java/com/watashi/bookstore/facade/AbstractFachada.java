@@ -3,8 +3,8 @@ package com.watashi.bookstore.facade;
 import com.watashi.bookstore.domain.grafico.Dashboard;
 import com.watashi.bookstore.strategy.livro.*;
 import com.watashi.bookstore.strategy.telefone.ValidaDadosTelefone;
-import com.watashi.bookstore.strategy.transacao_status_carta.AltararStatusLivro;
-import com.watashi.bookstore.strategy.transacao_status_carta.ValidaDadosTransacaoStatusLivro;
+import com.watashi.bookstore.strategy.transacao_status_livro.AltararStatusLivro;
+import com.watashi.bookstore.strategy.transacao_status_livro.ValidaDadosTransacaoStatusLivro;
 import com.watashi.bookstore.strategy.carrinho.*;
 import com.watashi.bookstore.strategy.cupom.*;
 import com.watashi.bookstore.strategy.dashboard.ValidaDadosDashboard;
@@ -348,7 +348,7 @@ public class AbstractFachada {
 
         this.regrasNegocio.put(Usuario.class.getName(), mapaUsuario);
 
-        //------------------------ Hash Carta ----------------------------//
+        //------------------------ Hash Livro ----------------------------//
 
         List<IStrategy> rnsLivroSalvar = new ArrayList<>();
 
@@ -373,7 +373,7 @@ public class AbstractFachada {
 
         this.regrasNegocio.put(Livro.class.getName(), mapaLivro);
 
-        //----------------- Hash TransacaoStatusCarta --------------------//
+        //----------------- Hash TransacaoStatusLivro --------------------//
 
         List<IStrategy> rnsTransacaoStatusLivroSalvar = new ArrayList<>();
 
