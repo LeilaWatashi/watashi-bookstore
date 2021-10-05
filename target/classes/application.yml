@@ -32,10 +32,10 @@ spring:
 
   mail:
     host: smtp.outlook.com
-    username: leilawatashi@gmail.com
-    password: Isae0611
+    username: watashibookstore@outlook.com
+    password: 123456
     port: 587
-    test-connection: true
+    test-connection: false
     properties:
       mail:
         smtp:
